@@ -1,1 +1,143 @@
+class DeliveryOrder:
+    def __init__(self, order_number, recipient_name, contact, delivery_address, items, total_weight, delivery_date):
+        """
+        Constructor for the DeliveryOrder class.
+        Initializes the attributes of a delivery order.
+        """
+        self._order_number = order_number  # Unique identifier for the order
+        self._recipient_name = recipient_name  # Name of the recipient
+        self._contact = contact  # Contact information of the recipient
+        self._delivery_address = delivery_address  # Delivery address
+        self._items = items  # List of Item objects in the order
+        self._total_weight = total_weight  # Total weight of the order
+        self._delivery_date = delivery_date  # Scheduled delivery date
 
+    # Getters
+    def get_order_number(self): return self._order_number
+    def get_recipient_name(self): return self._recipient_name
+    def get_contact(self): return self._contact
+    def get_delivery_address(self): return self._delivery_address
+    def get_items(self): return self._items
+
+    # Setters
+    def set_order_number(self, value): self._order_number = value
+    def set_recipient_name(self, value): self._recipient_name = value
+    def set_contact(self, value): self._contact = value
+    def set_delivery_address(self, value): self._delivery_address = value
+    def set_items(self, value): self._items = value
+
+    # Other methods
+    def calculate_total_weight(self):
+        """
+        Calculates the total weight of the order based on the items.
+        This method sums up the weight of all items in the order.
+        """
+        pass  # Placeholder for implementation
+
+
+class Item:
+    def __init__(self, item_code, description, quantity, unit_price):
+        """
+        Constructor for the Item class.
+        Initializes the attributes of an item.
+        """
+        self._item_code = item_code  # Unique identifier for the item
+        self._description = description  # Description of the item
+        self._quantity = quantity  # Quantity of the item
+        self._unit_price = unit_price  # Price per unit of the item
+
+    # Getters
+    def get_item_code(self): return self._item_code
+    def get_description(self): return self._description
+    def get_quantity(self): return self._quantity
+    def get_unit_price(self): return self._unit_price
+
+    # Setters
+    def set_item_code(self, value): self._item_code = value
+    def set_description(self, value): self._description = value
+    def set_quantity(self, value): self._quantity = value
+    def set_unit_price(self, value): self._unit_price = value
+
+    # Other methods
+    def get_total_price(self):
+        """
+        Calculates the total price of the item (quantity * unit price).
+        This method returns the total price for the item.
+        """
+        pass  # Placeholder for implementation
+
+
+class DeliveryNote:
+    def __init__(self, delivery_note_number, order_number, recipient_details, delivery_address, items_summary, total_charges):
+        """
+        Constructor for the DeliveryNote class.
+        Initializes the attributes of a delivery note.
+        """
+        self._delivery_note_number = delivery_note_number  # Unique identifier for the delivery note
+        self._order_number = order_number  # Order number associated with the delivery note
+        self._recipient_details = recipient_details  # Recipient's details
+        self._delivery_address = delivery_address  # Delivery address
+        self._items_summary = items_summary  # List of Item objects in the delivery note
+        self._total_charges = total_charges  # Total charges for the delivery
+
+    # Getters
+    def get_delivery_note_number(self): return self._delivery_note_number
+    def get_order_number(self): return self._order_number
+    def get_recipient_details(self): return self._recipient_details
+    def get_delivery_address(self): return self._delivery_address
+    def get_items_summary(self): return self._items_summary
+
+    # Setters
+    def set_delivery_note_number(self, value): self._delivery_note_number = value
+    def set_order_number(self, value): self._order_number = value
+    def set_recipient_details(self, value): self._recipient_details = value
+    def set_delivery_address(self, value): self._delivery_address = value
+    def set_items_summary(self, value): self._items_summary = value
+
+    # Other methods
+    def generate_delivery_note(self):
+        """
+        Generates the delivery note with all details.
+        This method compiles all information into a printable format.
+        """
+        pass  # Placeholder for implementation
+
+    def print_delivery_note(self):
+        """
+        Prints the delivery note.
+        This method handles the printing of the delivery note.
+        """
+        pass  # Placeholder for implementation
+
+
+class DeliveryManager:
+    def __init__(self, manager_id, name):
+        """
+        Constructor for the DeliveryManager class.
+        Initializes the attributes of a delivery manager.
+        """
+        self._manager_id = manager_id  # Unique identifier for the manager
+        self._name = name  # Name of the manager
+
+    # Getters
+    def get_manager_id(self): return self._manager_id
+    def get_name(self): return self._name
+
+    # Setters
+    def set_manager_id(self, value): self._manager_id = value
+    def set_name(self, value): self._name = value
+
+    # Other methods
+    def update_delivery_details(self):
+        """
+        Updates delivery details (e.g., address, contact info).
+        This method allows the manager to modify delivery details.
+        """
+        pass  # Placeholder for implementation
+
+    def verify_delivery_note(self):
+        """
+        Verifies the accuracy of the delivery note before printing.
+        This method ensures that all details in the delivery note are correct.
+        """
+        pass  # Placeholder for implementation
