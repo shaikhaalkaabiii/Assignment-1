@@ -1,0 +1,37 @@
+# Create Item objects
+item1 = Item("ITM001", "Wireless Keyboard", 1, 100.00)
+item2 = Item("ITM002", "Wireless Mouse & Pad Set", 1, 75.00)
+item3 = Item("ITM003", "Laptop Cooling Pad", 1, 120.00)
+item4 = Item("ITM004", "Camera Lock", 3, 15.00)
+
+# Create a DeliveryOrder object
+order = DeliveryOrder(
+    order_number="DEL123456789",
+    recipient_name="Sarah Johnson",
+    contact="sarah.johnson@example.com",
+    delivery_address="45 Knowledge Avenue, Dubai, UAE",
+    items=[item1, item2, item3, item4],
+    total_weight=7.0,  # Initial weight and it will be recalculated
+    delivery_date="2025-01-25"
+)
+
+# Create a DeliveryNote object
+delivery_note = DeliveryNote(
+    delivery_note_number="DN-2025-001",
+    order_number=order.get_order_number(),
+    recipient_details=order.get_recipient_name(),
+    delivery_address=order.get_delivery_address(),
+    items_summary=order.get_items(),
+    total_charges=283.50
+)
+
+# Create a DeliveryManager object
+manager = DeliveryManager(manager_id="MGR001", name="Andrew")
+
+# Calculate the total weight of the order
+order.calculate_total_weight()  # This will update the total weight based on items
+print(f"Total Weight: {order.get_total_weight()} kg")  # Output: Total Weight: 6 kg
+
+# Generate and print the delivery note
+delivery_note.generate_delivery_note()  # This will compile the delivery note
+delivery_note.print_delivery_note()
