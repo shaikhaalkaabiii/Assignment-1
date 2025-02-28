@@ -11,9 +11,13 @@ order = DeliveryOrder(
     contact="sarah.johnson@example.com",
     delivery_address="45 Knowledge Avenue, Dubai, UAE",
     items=[item1, item2, item3, item4],
-    total_weight=7.0,  # Initial weight and it will be recalculated
+    total_weight=0,  # Will be updated to 7 kg
     delivery_date="2025-01-25"
 )
+
+# Calculate the total weight of the order
+order.calculate_total_weight()
+print(f"Total Weight: {order.get_total_weight()} kg")  # Output: Total Weight: 7.0 kg
 
 # Create a DeliveryNote object
 delivery_note = DeliveryNote(
@@ -28,10 +32,8 @@ delivery_note = DeliveryNote(
 # Create a DeliveryManager object
 manager = DeliveryManager(manager_id="MGR001", name="Andrew")
 
-# Calculate the total weight of the order
-order.calculate_total_weight()  # This will update the total weight based on items
-print(f"Total Weight: {order.get_total_weight()} kg")  # Output: Total Weight: 6 kg
-
 # Generate and print the delivery note
-delivery_note.generate_delivery_note()  # This will compile the delivery note
 delivery_note.print_delivery_note()
+
+# Verify the delivery note
+manager.verify_delivery_note(delivery_note)
